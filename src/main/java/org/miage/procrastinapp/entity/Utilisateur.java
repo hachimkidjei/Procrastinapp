@@ -1,3 +1,4 @@
+// === ENTITÉ : Utilisateur.java ===
 package org.miage.procrastinapp.entity;
 
 import jakarta.persistence.*;
@@ -46,7 +47,7 @@ public class Utilisateur {
 
     private int points = 0;
 
-    // Relations avec les autres entités
+    // Relations
     @OneToMany(mappedBy = "utilisateur")
     private List<TacheAEviter> taches;
 

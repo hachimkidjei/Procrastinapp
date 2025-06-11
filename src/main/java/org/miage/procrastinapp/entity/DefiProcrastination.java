@@ -23,7 +23,7 @@ public class DefiProcrastination {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -39,7 +39,7 @@ public class DefiProcrastination {
 
     private int pointsAGagner;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "createur_id")
     private Utilisateur createur;
 
@@ -48,7 +48,7 @@ public class DefiProcrastination {
     private LocalDate dateFin;
 
     @Enumerated(EnumType.STRING)
-    private Statut statut;
+    private Statut statut = Statut.ACTIF;
 
     @OneToMany(mappedBy = "defi", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ParticipationDefi> participations = new ArrayList<>();

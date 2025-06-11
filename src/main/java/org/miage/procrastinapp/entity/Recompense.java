@@ -1,38 +1,34 @@
 package org.miage.procrastinapp.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 @Entity
 @Data
 @NoArgsConstructor
 public class Recompense {
-
-    public enum Type {
+    public enum TypeRecompenseEnum {
         BADGE,
-        TITRE_HONORIFIQUE,
-        POUVOIR_SPECIAL
+        TITRE,
+        POUVOIR
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @Column(nullable = false)
     private String titre;
 
-    @Lob
     private String description;
 
-    @NotNull
     private String conditionsObtention;
 
-    @NotNull
     private String niveauPrestige;
 
     @Enumerated(EnumType.STRING)
-    @NotNull
-    private Type type;
+    @Column(nullable = false)
+    private TypeRecompenseEnum type;
 }

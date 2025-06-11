@@ -2,6 +2,7 @@ package org.miage.procrastinapp.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.LocalDate;
 
 @Entity
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class ParticipationDefi {
+
     public enum StatutParticipation {
         INSCRIT,
         EN_COURS,

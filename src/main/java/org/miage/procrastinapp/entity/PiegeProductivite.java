@@ -17,9 +17,12 @@ public class PiegeProductivite {
     public enum TypePiege {
         JEU, DEFI, MEDITATION
     }
+    public enum StatutPiege {
+        ACTIF, INACTIF
+    }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -31,6 +34,10 @@ public class PiegeProductivite {
     @Enumerated(EnumType.STRING)
     @NotNull
     private TypePiege type;
+
+    @Enumerated(EnumType.STRING)
+    @NotNull
+    private StatutPiege statut;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "createur_id")
@@ -47,7 +54,4 @@ public class PiegeProductivite {
 
     @NotNull
     private LocalDateTime dateCreation;
-
-    @NotNull
-    private boolean actif;
 }

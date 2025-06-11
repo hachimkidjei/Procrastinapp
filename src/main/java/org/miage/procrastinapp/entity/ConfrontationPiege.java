@@ -17,9 +17,11 @@ public class ConfrontationPiege {
         ECHEC   // Productivité accidentelle
     }
 
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // ou AUTO
     private Long id;
+
 
     @NotNull
     private LocalDate dateConfrontation;
